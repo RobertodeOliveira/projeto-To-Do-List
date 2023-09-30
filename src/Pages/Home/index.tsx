@@ -1,20 +1,31 @@
-// import { Input } from '../../components/Input'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
+import { Text } from '../../components/Text'
 import * as S from './styles'
 
 const Home = () => {
   return ( 
     <S.WrapperContainer>
       <S.Header>
-        {/* <img src="../../../public/rocket.svg" style={{width: "25px"}} alt="" /> */}
+        <S.WrapperHeader>
         <S.imageRocket src="../../../public/rocket.svg" />
         <p><span>to</span>do</p>
+        </S.WrapperHeader>
       </S.Header>
+
       <S.Content>
-        <S.Wrapper>
-          {/* <Input /> */}
-        </S.Wrapper>
-        <S.Input autoComplete='on' placeholder='Adicione uma tarefa' />
-        <h1>Qualquer coisa</h1>
+        <S.WrapperContent>
+          <S.WrapperForm>
+            <Input />
+            <Button text='Criar'/>
+          </S.WrapperForm>
+        
+          <S.WrapperContentHeader>
+              <Text color='#4EA8DE' text='Tarefas criadas' />
+              <Text color='#4EA8DE' text='Tarefas criadas' />
+          </S.WrapperContentHeader>
+        </S.WrapperContent>
+
       </S.Content>
     </S.WrapperContainer>
   ) 
