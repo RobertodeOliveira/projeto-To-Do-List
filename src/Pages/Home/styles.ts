@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+type ImageProps = { 
+  width: string
+  heigth: string
+}
 
 const WrapperContainer = styled('div')`
   margin: 0 auto;
@@ -39,9 +44,11 @@ const WrapperHeader = styled('div')`
   gap: 0.75rem;
 `
 
-const imageRocket = styled('img')`
-  width: 22px;
-  height: 36px;
+const Image = styled('img')<ImageProps>`
+  ${({ width, height }) => css`
+    width: ${width};
+    height: ${height};
+  `}
 `
 
 const Content = styled('div')`
@@ -86,22 +93,45 @@ const WrapperContent = styled('div') `
   align-items: center;
 `
 
-const WrapperContentHeader = styled('div') `
+const ContentHeader = styled('div') `
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border-bottom: 1px solid #333;
   margin-top: 4rem;
+`
+
+const WapperContentHeaderTasks = styled('div')`
+  display: flex;
+  gap: 0.5rem;
+`
+
+const WrapperToDo = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+/* 
+  :first-child{ 
+    margin-bottom: 1rem;
+  } */
+
+  min-width: 100%;
+  padding: 4rem 1.5rem;
+  border-top: 1px solid #333;
+  margin-top: 1.5625rem;
+  border-radius: 8px;
+  
 `
 
 export { 
   WrapperContainer,
   Header,
-  imageRocket,
+  Image,
   Content,
   Input, 
   WrapperForm,
   WrapperContent,
+  WapperContentHeaderTasks,
   WrapperHeader,
-  WrapperContentHeader
+  ContentHeader,
+  WrapperToDo
 }

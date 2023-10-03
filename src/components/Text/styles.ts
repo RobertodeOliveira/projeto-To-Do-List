@@ -1,17 +1,19 @@
 import styled, { css } from "styled-components";
 
 type TextStyleProps = {
-  color: string
+  color?: string
+  weight?: number
+  fontSize?: string
 }
 
 const Text = styled('p')<TextStyleProps>`
-  ${({ color }) => css `
-    color: ${color}
-    font-size: 0.875rem;
-    font-weight: 700;
+  ${({ color, weight, fontSize }) => css `
+    color: ${color};
+    font-size: ${fontSize};
+    font-weight: ${weight};
+    // font-weight: 700;
   `}
   
 `
-// export type { TextStyleProps }
 
 export { Text  }

@@ -1,16 +1,17 @@
 import * as S from './styles'
 
-type Color = `${string}`
 
 type TextProps = {
   text: string
-  color: Color
+  fontSize?: string
+  color?: string
+  weight?: number
 }
 
-const Text = ({ text, color }: TextProps) => {
+const Text = ({ text, color, weight, fontSize }: TextProps) => {
   return ( 
     <>
-      <S.Text color={color}>{text}</S.Text>
+      <S.Text color={color} weight={weight} fontSize={fontSize}>{text}</S.Text>
     </>
   )
 }
