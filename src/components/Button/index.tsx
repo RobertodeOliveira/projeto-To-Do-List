@@ -1,12 +1,13 @@
+import { ButtonHTMLAttributes } from 'react'
 import * as S from './styles'
 
-type ButtonProps = {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string
 }
 
-const Button = ({ text }: ButtonProps) => { 
+const Button = ({ text, ...props }: ButtonProps) => { 
   return (
-     <S.Button>
+     <S.Button {...props} > 
     {text}
     <S.Icon src='../../../public/icon-plus.svg' /> 
   </S.Button>

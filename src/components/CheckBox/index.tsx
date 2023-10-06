@@ -1,13 +1,20 @@
 import { useState } from 'react'
 import * as S from './styles'
 
-// const [check, setCheck] = useState(false)
+
 
 const CheckBox = () => {
+  const [check, setCheck] = useState(false)
+  const HandleCheck = () => {
+    setCheck(!check)
+  }
+
   return (
-    <S.Wrapper> 
-      
-    </S.Wrapper>
+    <>
+      <S.ButtonCheckbox onClick={HandleCheck}> 
+          <S.Image src={check ? '../../../public/check-empty.svg' : '../../../public/check.svg'}/>
+      </S.ButtonCheckbox>
+    </>
   )
 } 
 

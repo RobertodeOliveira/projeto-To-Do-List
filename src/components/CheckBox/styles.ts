@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-const Wrapper = styled('div')`
+const ButtonCheckbox = styled('div')`
+  display: flex;
+  align-items: center;
   padding: 0.1875.rem;  
-  border: 1px solid #4EA8DE;
   height: 1.5rem;
   width: 1.5rem;
   box-sizing: border-box;
@@ -10,4 +11,9 @@ const Wrapper = styled('div')`
   border-radius: 999px;
 `
 
-export { Wrapper }
+const Image = styled('img')`
+  height: 17px;
+  width: 17px;
+`
+
+export { ButtonCheckbox, Image }

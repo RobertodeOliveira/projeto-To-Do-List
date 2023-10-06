@@ -61,30 +61,9 @@ const Content = styled('div')`
   background-color:  #1A1A1A;
 ` 
 
-const Input = styled('input')`
-  width: 736px;
-  padding: 1rem;
 
-  background: #262626;
-  color: white;
-  border: none;
 
-  ::placeholder {
-    color: red;
-  }
 
-  &:focus{ 
-    outline: none;
-  }
-
-`
-
-const WrapperForm = styled('div') `
-  margin-top: -25px;
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-`
 
 const WrapperContent = styled('div') `
   width: 736px;
@@ -114,7 +93,7 @@ const WrapperToDo = styled('div')`
     margin-bottom: 1rem;
   } */
 
-  min-width: 100%;
+  width: 100%;
   padding: 4rem 1.5rem;
   border-top: 1px solid #333;
   margin-top: 1.5625rem;
@@ -127,8 +106,6 @@ export {
   Header,
   Image,
   Content,
-  Input, 
-  WrapperForm,
   WrapperContent,
   WapperContentHeaderTasks,
   WrapperHeader,

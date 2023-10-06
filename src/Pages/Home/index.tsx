@@ -1,6 +1,5 @@
 import { Badge } from '../../components/Badge'
-import { Button } from '../../components/Button'
-import { Input } from '../../components/Input'
+import { Form } from '../../components/Form'
 import { TaskCard } from '../../components/TaskCard'
 import { Text } from '../../components/Text'
 import * as S from './styles'
@@ -17,11 +16,7 @@ const Home = () => {
 
       <S.Content>
         <S.WrapperContent>
-          <S.WrapperForm>
-            <Input />
-            <Button text='Criar'/>
-          </S.WrapperForm>
-
+          <Form />
           <S.ContentHeader>
             <S.WapperContentHeaderTasks>
               <Text color='#4EA8DE' text='Tarefas criadas' weight={700} fontSize='0.875rem'/>
