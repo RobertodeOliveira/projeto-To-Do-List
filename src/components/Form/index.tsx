@@ -1,32 +1,32 @@
 import * as S from './styles'
 import { Input } from './Input'
-import { Button} from '../Button'
+import { Button } from '../Button'
 import { ChangeEvent, useState, FormEvent } from 'react'
 
 const Form = () => {
 
-  const [ input, setInput ] = useState('')
-  const [ task, setTask ] = useState<any>([])
+  const [input, setInput] = useState('')
+  const [task, setTask] = useState<string[]>([])
 
-  // console.log(input)
+  console.log(input)
   console.log(task)
 
   const handleInputText = (event: ChangeEvent<HTMLInputElement>) => {
-     setInput(event.target.value)
+    setInput(event.target.value)
   }
 
   const handleNewTask = (event: FormEvent) => {
     event.preventDefault()
-    setTask(input)
+    setTask([...task, input])
     setInput('')
   }
 
 
-  return ( 
+  return (
     <S.WrapperForm>
-      <Input name='input'  onChange={handleInputText}/> 
+      <Input name='input' value={input} onChange={handleInputText} />
       <Button text='Criar' onClick={handleNewTask} />
-  </S.WrapperForm>
+    </S.WrapperForm>
   )
 }
 
