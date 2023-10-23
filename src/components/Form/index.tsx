@@ -1,31 +1,30 @@
 import * as S from './styles'
 import { Input } from './Input'
 import { Button } from '../Button'
+import { FromProps } from '../../types'
 import { ChangeEvent, useState, FormEvent } from 'react'
 
-const Form = () => {
 
+const Form = ({onAddTask}:FromProps) => {
+
+  console.log(onAddTask)
   const [input, setInput] = useState('')
-  const [task, setTask] = useState<string[]>([])
-
-  console.log(input)
-  console.log(task)
 
   const handleInputText = (event: ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value)
   }
 
   const handleNewTask = (event: FormEvent) => {
+    //Trazer o valor
     event.preventDefault()
-    setTask([...task, input])
-    setInput('')
+    onAddTask(input)  
+    setInput("")
   }
 
-
   return (
-    <S.WrapperForm>
-      <Input name='input' value={input} onChange={handleInputText} />
-      <Button text='Criar' onClick={handleNewTask} />
+    <S.WrapperForm onSubmit={handleNewTask}>
+      <Input name='input' value={input} onChange={handleInputText}  />
+      <Button text='Criar' />
     </S.WrapperForm>
   )
 }

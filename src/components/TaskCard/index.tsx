@@ -1,9 +1,6 @@
 import { CheckBox } from '../CheckBox'
+import { TaskCardProps } from '../../types'
 import * as S from './styles'
-
-type TaskCardProps = {
-  children: string
-}
 
 const TaskCard = ({ children }: TaskCardProps) => { 
   return (
