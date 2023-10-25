@@ -5,14 +5,20 @@ import { HeaderCount } from '../../components/HeaderCount'
 import { TaskCard } from '../../components/TaskCard'
 import { useState } from 'react'
 import * as S from './styles'
-import { ContentProps } from '../../types'
+import { TaskListProps } from '../../types'
 
 const Home = () => {
 
-  const [taskList, setTask] = useState<ContentProps[]>([])
+  const [taskList, setTaskList] = useState<TaskListProps[]>([])
+
   console.log(taskList)
+
   const handleNewtaks = (newTask) => (
-    setTask([...taskList, newTask])
+    setTaskList([...taskList, {
+      id: Math.floor(Math.random()*100),
+      newTask,
+      concluid: false,
+    }])
   )
   
   return ( 
@@ -23,7 +29,13 @@ const Home = () => {
           <Form onAddTask={handleNewtaks}/>
           <HeaderCount />    
           <S.WrapperToDo>
-            <TaskCard>Preciso trocar o lixo</TaskCard>
+            {
+              taskList.map(({ id, newTask}) => {
+                return (
+                  <TaskCard concluid key={id}>{newTask}</TaskCard>
+                )
+              })
+            }
           </S.WrapperToDo>
         </S.WrapperContent>
       </S.Content>
