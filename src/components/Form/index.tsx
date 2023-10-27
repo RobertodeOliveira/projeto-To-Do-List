@@ -7,7 +7,7 @@ import { ChangeEvent, useState, FormEvent } from 'react'
 
 const Form = ({onAddTask}:FromProps) => {
 
-  console.log(onAddTask)
+  // console.log(onAddTask)
   const [input, setInput] = useState('')
 
   const handleInputText = (event: ChangeEvent<HTMLInputElement>) => {

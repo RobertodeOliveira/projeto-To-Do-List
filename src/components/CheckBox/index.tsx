@@ -3,12 +3,13 @@ import * as S from './styles'
 // import { CheckBoxProps } from '../../types'
 
 
-const CheckBox = ({onState}) => {
-  console.log(onState)
+const CheckBox = ({onState, handleConcluidTask, taskId}) => {
+  // console.log(onState)
   const [check, setCheck] = useState(true)
   const HandleCheck = () => {
-    setCheck(!check)
+    // setCheck(!check)
     onState()
+    handleConcluidTask(taskId)
   }
 
   return (

@@ -8,10 +8,12 @@ type ImageProps = {
 type TaskCardProps = {
   children: ReactNode
   concluid: boolean
+  taskId: number
+  handleConcluidTask: (taskId: number) => void
 }
 
 type FromProps = {
-  onAddTask: () => object
+  onAddTask: (newTask: object[]) => void
 }
 
 type TaskListProps = {

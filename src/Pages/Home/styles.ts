@@ -40,6 +40,7 @@ const WrapperToDo = styled('div')`
   width: 100%;
   max-height: 350px;
   overflow: auto;
+  overflow-x: clip;
   padding: 4rem 1.5rem;
   border-top: 1px solid #333;
   margin-top: 1.5625rem;

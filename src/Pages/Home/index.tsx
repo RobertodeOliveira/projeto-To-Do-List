@@ -11,7 +11,7 @@ const Home = () => {
 
   const [taskList, setTaskList] = useState<TaskListProps[]>([])
 
-  console.log(taskList)
+  // console.log(taskList)
 
   const handleNewtaks = (newTask) => (
     setTaskList([...taskList, {
@@ -20,19 +20,50 @@ const Home = () => {
       concluid: false,
     }])
   )
+
+  const countTasksNotConcluid = taskList.filter(item => !item.concluid).length;
   
+  const countTasksConcluid = taskList.filter(item => item.concluid).length;
+
+    const handleConcluidTask = (taskId: number) => {
+      const updatedTaskList = taskList.map((task) =>
+      task.id === taskId ? { ...task, concluida: !task.concluid } : task
+    );
+    setTaskList(updatedTaskList);
+      // const updateTaskList = taskList.map( (item) => {
+      //   if(item.id === taskId) {
+      //     return {
+      //       ...item, 
+      //       concluid: !item.concluid,
+
+      //   };
+      //   }
+      //   return item
+      // })
+      // setTaskList(updateTaskList)
+    }
+
+    console.log(taskList)
+
+    const handleToggleConcluida = (taskId) => {
+      const updatedTaskList = taskList.map((task) =>
+        task.id === taskId ? { ...task, concluida: !task.concluida } : task
+      );
+      setTaskList(updatedTaskList);
+    };
+
   return ( 
     <S.Container>
       <Header />
       <S.Content>
         <S.WrapperContent>
           <Form onAddTask={handleNewtaks}/>
-          <HeaderCount />    
+          <HeaderCount countTasksNotConcluid={countTasksNotConcluid} />    
           <S.WrapperToDo>
             {
               taskList.map(({ id, newTask}) => {
                 return (
-                  <TaskCard concluid key={id}>{newTask}</TaskCard>
+                  <TaskCard concluid handleConcluidTask={handleConcluidTask} taskId={id} key={id}>{newTask}</TaskCard>
                 )
               })
             }
@@ -41,6 +72,6 @@ const Home = () => {
       </S.Content>
     </S.Container>
   ) 
-} 
+}  
 
 export { Home }

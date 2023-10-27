@@ -1,11 +1,15 @@
 import * as S from './styles'
 // import { useState } from 'react'
 
-const Badge = () => {
+type BadgePprops = {
+  countTasksNotConcluid: number
+}
+
+const Badge = ({countTasksNotConcluid}:BadgePprops) => {
   // const [ count, setCount ] = useState()
 
   return (
-    <S.Wrapper>0</S.Wrapper>
+    <S.Wrapper>{countTasksNotConcluid}</S.Wrapper>
   )
 }
 

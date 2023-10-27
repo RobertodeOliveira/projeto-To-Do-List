@@ -18,16 +18,20 @@ const ContainerText = styled('div')<ConluidProps>`
   ${({onConcluid}) => css`
     position: relative;
     width: 100%;
-    max-height: 350px;
-    overflow: auto;
     margin-left: 0.75rem;
     color: ${onConcluid ? "#808080" :" #F2F2F2"};
     line-height: 19px;
     font-size: 0.875rem;
-
+    overflow-x: unset;
     display: flex;
     align-items: center;
   `}
+`
+
+const Text = styled('div')`
+  display: flex;
+  align-items: center;
+  width: 100%;
 `
 
 type ConluidProps  = {
@@ -57,5 +61,6 @@ export {
   Wrapper,
   Image,
   ContainerText,
-  LineOfConluid
+  LineOfConluid,
+  Text
  }
