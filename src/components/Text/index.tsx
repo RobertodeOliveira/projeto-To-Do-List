@@ -1,6 +1,5 @@
 import * as S from './styles'
 
-
 type TextProps = {
   text: string
   fontSize?: string

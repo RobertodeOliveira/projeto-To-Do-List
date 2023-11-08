@@ -3,7 +3,6 @@ import * as S from './styles'
 
 interface InputProps  extends InputHTMLAttributes<HTMLInputElement>{}
 
-
 const Input = ({...props}:InputProps) => {
 
   return (

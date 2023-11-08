@@ -4,10 +4,8 @@ import { Button } from '../Button'
 import { FromProps } from '../../types'
 import { ChangeEvent, useState, FormEvent, InvalidEvent } from 'react'
 
-
 const Form = ({onAddTask}:FromProps) => {
 
-  // console.log(onAddTask)
   const [input, setInput] = useState('')
 
   const handleInputText = (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +14,6 @@ const Form = ({onAddTask}:FromProps) => {
   }
 
   const handleNewTask = (event: FormEvent) => {
-    //Trazer o valor
     event.preventDefault()
     onAddTask(input)  
     setInput("")
@@ -27,7 +24,6 @@ const Form = ({onAddTask}:FromProps) => {
   }
 
   const inputEmpityDisabled = input.length === 0
-
 
   return (
     <S.WrapperForm onSubmit={handleNewTask}>

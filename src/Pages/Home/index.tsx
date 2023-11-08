@@ -8,10 +8,7 @@ import * as S from './styles'
 import { TaskListProps } from '../../types'
 
 const Home = () => {
-
   const [taskList, setTaskList] = useState<TaskListProps[]>([])
-
-  // console.log(taskList)
 
   const handleNewtaks = (newTask: string) => (
     setTaskList([...taskList, {
@@ -21,8 +18,7 @@ const Home = () => {
     }])
   )
 
-    const countTasksNotConcluid = taskList.length;
-  
+  const countTasksNotConcluid = taskList.length;
   const countTasksConcluid = taskList.filter(item => item.concluid).length;
 
     const handleConcluidTask = (taskId: number) => {
@@ -32,23 +28,12 @@ const Home = () => {
     setTaskList(updatedTaskList);
     }
 
-    console.log(taskList)
-
-    // const handleToggleConcluida = (taskId) => {
-    //   const updatedTaskList = taskList.map((task) =>
-    //     task.id === taskId ? { ...task, concluida: !task.concluida } : task
-    //   );
-    //   setTaskList(updatedTaskList);
-    // };
-
     const deleteTask = (taskToDelete: number) => {
       const tasksWithoutDeleteOne = taskList.filter(tasks => {
         return tasks.id !== taskToDelete
       })
       setTaskList(tasksWithoutDeleteOne)
     }
-
-    console.log(taskList)
 
   return ( 
     <S.Container>
@@ -74,15 +59,3 @@ const Home = () => {
 
 export { Home }
 
-
-    // const updateTaskList = taskList.map( (item) => {
-      //   if(item.id === taskId) {
-      //     return {
-      //       ...item, 
-      //       concluid: !item.concluid,
-
-      //   };
-      //   }
-      //   return item
-      // })
-      // setTaskList(updateTaskList)

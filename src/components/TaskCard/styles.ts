@@ -39,7 +39,6 @@ const Text = styled('div')`
   width: 100%;
 `
 
-
 const LineOfConluid = styled('hr')<ConluidProps>`
   ${({ onConcluid }) => css`
     display: ${onConcluid ? "block" : "none"};
@@ -74,10 +73,6 @@ const Button = styled('button')`
     }
   }
 `
-
-// const IconContainer = styled('span')`
-
-// `
 
 export { 
   Wrapper,

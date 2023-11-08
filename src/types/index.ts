@@ -31,7 +31,6 @@ type CheckBoxProps = {
   state: boolean
 }
 
-
 export type { 
   ImageProps,
   TaskCardProps,

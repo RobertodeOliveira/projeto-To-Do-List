@@ -32,10 +32,6 @@ const WrapperToDo = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
-/* 
-  :first-child{ 
-    margin-bottom: 1rem;
-  } */
 
   width: 100%;
   max-height: 350px;

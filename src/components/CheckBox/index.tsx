@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import * as S from './styles'
-// import { CheckBoxProps } from '../../types'
 
+type CheckBoxProps = {
+  onState: () => void
+  handleConcluidTask: (taskId: number) => void 
+  taskId: number
+}
 
-const CheckBox = ({onState, handleConcluidTask, taskId}) => {
-  // console.log(onState)
+const CheckBox = ({onState, handleConcluidTask, taskId}: CheckBoxProps) => {
   const [check, setCheck] = useState(true)
   
   const HandleCheck = () => {
