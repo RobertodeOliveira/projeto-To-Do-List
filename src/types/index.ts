@@ -9,11 +9,12 @@ type TaskCardProps = {
   children: ReactNode
   concluid: boolean
   taskId: number
+  onDelete: (taskToDelete: number) => void
   handleConcluidTask: (taskId: number) => void
 }
 
 type FromProps = {
-  onAddTask: (newTask: object[]) => void
+  onAddTask: (newTask: string) => void
 }
 
 type TaskListProps = {

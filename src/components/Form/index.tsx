@@ -2,7 +2,7 @@ import * as S from './styles'
 import { Input } from './Input'
 import { Button } from '../Button'
 import { FromProps } from '../../types'
-import { ChangeEvent, useState, FormEvent } from 'react'
+import { ChangeEvent, useState, FormEvent, InvalidEvent } from 'react'
 
 
 const Form = ({onAddTask}:FromProps) => {
@@ -12,6 +12,7 @@ const Form = ({onAddTask}:FromProps) => {
 
   const handleInputText = (event: ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value)
+    event.target.setCustomValidity("")
   }
 
   const handleNewTask = (event: FormEvent) => {
@@ -21,10 +22,17 @@ const Form = ({onAddTask}:FromProps) => {
     setInput("")
   }
 
+  const handleNewTaskInvalid = (event: InvalidEvent<HTMLInputElement>) => {
+    event.target.setCustomValidity("Este campo é obrigatório")
+  }
+
+  const inputEmpityDisabled = input.length === 0
+
+
   return (
     <S.WrapperForm onSubmit={handleNewTask}>
-      <Input name='input' value={input} onChange={handleInputText}  />
-      <Button text='Criar' />
+      <Input name='input' value={input} onChange={handleInputText} onInvalid={handleNewTaskInvalid} required/>
+      <Button text='Criar' disabled={inputEmpityDisabled} />
     </S.WrapperForm>
   )
 }

@@ -7,8 +7,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = ({ text, ...props }: ButtonProps) => { 
   return (
-     <S.Button {...props} > 
-    {text}
+    <S.Button {...props} > 
+      {text}
     <S.Icon src='../../../public/icon-plus.svg' /> 
   </S.Button>
   )

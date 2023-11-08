@@ -6,8 +6,9 @@ import * as S from './styles'
 const CheckBox = ({onState, handleConcluidTask, taskId}) => {
   // console.log(onState)
   const [check, setCheck] = useState(true)
+  
   const HandleCheck = () => {
-    // setCheck(!check)
+    setCheck(!check)
     onState()
     handleConcluidTask(taskId)
   }

@@ -14,6 +14,12 @@ const Button = styled('button')`
   padding: 1rem;  
   border-radius: 0.5rem;
   background-color: #1E6F9F;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
 `
 
 const Icon = styled('img')`

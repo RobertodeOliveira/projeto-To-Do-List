@@ -1,4 +1,9 @@
 import styled, { css } from "styled-components";
+import { Trash } from 'phosphor-react'
+
+type ConluidProps  = {
+  onConcluid: boolean;
+}
 
 const Wrapper = styled('div')`
   display: flex;
@@ -19,7 +24,7 @@ const ContainerText = styled('div')<ConluidProps>`
     position: relative;
     width: 100%;
     margin-left: 0.75rem;
-    color: ${onConcluid ? "#808080" :" #F2F2F2"};
+    color: ${onConcluid ? "#808080" : "#F2F2F2"};
     line-height: 19px;
     font-size: 0.875rem;
     overflow-x: unset;
@@ -34,9 +39,6 @@ const Text = styled('div')`
   width: 100%;
 `
 
-type ConluidProps  = {
-  onConcluid: boolean;
-}
 
 const LineOfConluid = styled('hr')<ConluidProps>`
   ${({ onConcluid }) => css`
@@ -48,19 +50,40 @@ const LineOfConluid = styled('hr')<ConluidProps>`
   `}
 `
 
-
-const Image = styled('img')`
-  padding: 0.3125rem 0.375rem;
-  height: 0.875rem;
-  width: 0.75rem;
-
-  margin-left: 0.75rem;
+const StylesIconTrash = styled(Trash)`
+  color: #808080;
 `
+
+const Button = styled('button')`
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  
+  padding: 0.3125rem;
+  margin-left: 0.75rem;
+
+  &:hover{
+    cursor: pointer;
+    ${StylesIconTrash} {
+     color: red;
+    }
+  }
+`
+
+// const IconContainer = styled('span')`
+
+// `
 
 export { 
   Wrapper,
-  Image,
+  Button,
   ContainerText,
   LineOfConluid,
-  Text
+  Text,
+  StylesIconTrash
  }

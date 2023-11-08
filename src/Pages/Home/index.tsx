@@ -13,7 +13,7 @@ const Home = () => {
 
   // console.log(taskList)
 
-  const handleNewtaks = (newTask) => (
+  const handleNewtaks = (newTask: string) => (
     setTaskList([...taskList, {
       id: Math.floor(Math.random()*100),
       newTask,
@@ -21,36 +21,34 @@ const Home = () => {
     }])
   )
 
-  const countTasksNotConcluid = taskList.filter(item => !item.concluid).length;
+    const countTasksNotConcluid = taskList.length;
   
   const countTasksConcluid = taskList.filter(item => item.concluid).length;
 
     const handleConcluidTask = (taskId: number) => {
       const updatedTaskList = taskList.map((task) =>
-      task.id === taskId ? { ...task, concluida: !task.concluid } : task
+      task.id === taskId ? { ...task, concluid: !task.concluid } : task
     );
     setTaskList(updatedTaskList);
-      // const updateTaskList = taskList.map( (item) => {
-      //   if(item.id === taskId) {
-      //     return {
-      //       ...item, 
-      //       concluid: !item.concluid,
-
-      //   };
-      //   }
-      //   return item
-      // })
-      // setTaskList(updateTaskList)
     }
 
     console.log(taskList)
 
-    const handleToggleConcluida = (taskId) => {
-      const updatedTaskList = taskList.map((task) =>
-        task.id === taskId ? { ...task, concluida: !task.concluida } : task
-      );
-      setTaskList(updatedTaskList);
-    };
+    // const handleToggleConcluida = (taskId) => {
+    //   const updatedTaskList = taskList.map((task) =>
+    //     task.id === taskId ? { ...task, concluida: !task.concluida } : task
+    //   );
+    //   setTaskList(updatedTaskList);
+    // };
+
+    const deleteTask = (taskToDelete: number) => {
+      const tasksWithoutDeleteOne = taskList.filter(tasks => {
+        return tasks.id !== taskToDelete
+      })
+      setTaskList(tasksWithoutDeleteOne)
+    }
+
+    console.log(taskList)
 
   return ( 
     <S.Container>
@@ -58,12 +56,12 @@ const Home = () => {
       <S.Content>
         <S.WrapperContent>
           <Form onAddTask={handleNewtaks}/>
-          <HeaderCount countTasksNotConcluid={countTasksNotConcluid} />    
+          <HeaderCount countTasksConcluid={countTasksConcluid} countTasksNotConcluid={countTasksNotConcluid} />    
           <S.WrapperToDo>
             {
               taskList.map(({ id, newTask}) => {
                 return (
-                  <TaskCard concluid handleConcluidTask={handleConcluidTask} taskId={id} key={id}>{newTask}</TaskCard>
+                  <TaskCard concluid handleConcluidTask={handleConcluidTask} onDelete={deleteTask} taskId={id} key={id}>{newTask}</TaskCard>
                 )
               })
             }
@@ -75,3 +73,16 @@ const Home = () => {
 }  
 
 export { Home }
+
+
+    // const updateTaskList = taskList.map( (item) => {
+      //   if(item.id === taskId) {
+      //     return {
+      //       ...item, 
+      //       concluid: !item.concluid,
+
+      //   };
+      //   }
+      //   return item
+      // })
+      // setTaskList(updateTaskList)
