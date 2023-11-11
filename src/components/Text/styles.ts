@@ -7,11 +7,14 @@ type TextStyleProps = {
 }
 
 const Text = styled('p')<TextStyleProps>`
-  ${({ color, weight, fontSize }) => css `
+  ${({ color, weight, fontSize }) => css`
     color: ${color};
     font-size: ${fontSize};
     font-weight: ${weight};
-    // font-weight: 700;
+
+    @media(max-width: 768px){
+      font-size: 12px;
+    }
   `}
   
 `

@@ -1,15 +1,15 @@
 import styled, { css } from "styled-components";
 import { Trash } from 'phosphor-react'
 
-type ConluidProps  = {
-  onConcluid: boolean;
+type Conluid  = {
+  Concluid: boolean;
 }
 
 const Wrapper = styled('div')`
   display: flex;
   align-items: center;
   width: 736px;
-  height: 72px;
+  /* height: 72px; */
 
   box-sizing: border-box;
   padding: 1rem;
@@ -17,31 +17,49 @@ const Wrapper = styled('div')`
   border: 1px solid #333;
   background:  #262626;
   margin-bottom: 1rem;
-`
 
-const ContainerText = styled('div')<ConluidProps>`
-  ${({onConcluid}) => css`
-    position: relative;
+  @media(max-width: 768px){
     width: 100%;
-    margin-left: 0.75rem;
-    color: ${onConcluid ? "#808080" : "#F2F2F2"};
-    line-height: 19px;
-    font-size: 0.875rem;
-    overflow-x: unset;
-    display: flex;
-    align-items: center;
-  `}
+    max-height: 300px;
+  }
 `
 
-const Text = styled('div')`
+// const ContainerText = styled('div')<Conluid>`
+//   ${({Concluid}) => css`
+//     width: 100%;
+//     margin-left: 0.75rem;
+
+//     display: flex;
+//     flex-wrap: wrap;
+    
+//     line-height: 19px;
+    
+//     overflow-x: unset;
+//     display: flex;
+//     align-items: center;
+//   `}
+// `
+
+const Text = styled('p')<Conluid>`
+${({Concluid}) => css`
   display: flex;
   align-items: center;
   width: 100%;
+
+  text-decoration: ${Concluid ? "line-through" : ""};
+  color: ${Concluid ? "#808080" : "#F2F2F2"};
+  word-break: break-all;
+  font-size: 0.875rem;
+  padding: 0.375rem;
+  display: flex:;
+  flex-wrap: wrap;
+  /* text-decoration: line-through; */
+`}
 `
 
-const LineOfConluid = styled('hr')<ConluidProps>`
-  ${({ onConcluid }) => css`
-    display: ${onConcluid ? "block" : "none"};
+const LineOfConluid = styled('hr')<Conluid>`
+  ${({ Concluid }) => css`
+    display: ${Concluid ? "block" : "none"};
     position: absolute;
     width: 100%;
     border-color: #808080;
@@ -77,7 +95,7 @@ const Button = styled('button')`
 export { 
   Wrapper,
   Button,
-  ContainerText,
+  // ContainerText,
   LineOfConluid,
   Text,
   StylesIconTrash

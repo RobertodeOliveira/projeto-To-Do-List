@@ -5,6 +5,10 @@ const Wrapper = styled('div') `
   justify-content: space-between;
   width: 100%;
   margin-top: 4rem;
+
+  @media(max-width: 768px){
+    margin-top: 2.5rem;
+  }
 `
 const Content = styled('div')`
   display: flex;

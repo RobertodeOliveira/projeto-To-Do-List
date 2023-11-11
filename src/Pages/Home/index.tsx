@@ -39,19 +39,22 @@ const Home = () => {
     <S.Container>
       <Header />
       <S.Content>
-        <S.WrapperContent>
           <Form onAddTask={handleNewtaks}/>
           <HeaderCount countTasksConcluid={countTasksConcluid} countTasksNotConcluid={countTasksNotConcluid} />    
           <S.WrapperToDo>
             {
               taskList.map(({ id, newTask}) => {
                 return (
-                  <TaskCard concluid handleConcluidTask={handleConcluidTask} onDelete={deleteTask} taskId={id} key={id}>{newTask}</TaskCard>
+                  <TaskCard concluid
+                    handleConcluidTask={handleConcluidTask}
+                    onDelete={deleteTask}
+                    taskId={id}
+                    key={id}>{newTask}
+                   </TaskCard>
                 )
               })
             }
           </S.WrapperToDo>
-        </S.WrapperContent>
       </S.Content>
     </S.Container>
   ) 

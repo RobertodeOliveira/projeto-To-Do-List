@@ -6,6 +6,7 @@ const Container = styled('div')`
   height: 100vh;
 
   display: flex;
+  position: fixed;
   background-color:  #1A1A1A;
   flex-direction: column;
   justify-content: center;
@@ -13,19 +14,29 @@ const Container = styled('div')`
 `
 const Content = styled('div')`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  /* height: 500px; */
+  width: 736px;
+  background-color: #1A1A1A;
 
-  background-color:  #1A1A1A;
+  @media(max-width: 768px){
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+  }
 ` 
 
 const WrapperContent = styled('div') `
-  width: 736px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: fixed;
+  box-sizing: border-box;
+  background-color: yellow;
 `
 
 const WrapperToDo = styled('div')`
@@ -34,14 +45,19 @@ const WrapperToDo = styled('div')`
   align-items: center;
 
   width: 100%;
-  max-height: 350px;
+  max-height: 300px;
   overflow: auto;
   overflow-x: clip;
   padding: 4rem 1.5rem;
+  box-sizing: border-box;
   border-top: 1px solid #333;
   margin-top: 1.5625rem;
   border-radius: 8px;
   
+  @media(max-width: 768px){
+    margin-top: 1rem;
+    max-height: 250px;
+  }
 `
 
 export { 
