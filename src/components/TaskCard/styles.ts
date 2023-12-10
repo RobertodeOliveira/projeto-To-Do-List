@@ -8,7 +8,7 @@ type Conluid  = {
 const Wrapper = styled('div')`
   display: flex;
   align-items: center;
-  width: 736px;
+  width: 100%;
   /* height: 72px; */
 
   box-sizing: border-box;

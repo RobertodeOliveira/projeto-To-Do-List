@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled('div')`
   margin: 0 auto;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 
   display: flex;
   position: fixed;
@@ -17,7 +17,7 @@ const Content = styled('div')`
   position: relative;
   flex-direction: column;
   align-items: center;
-  /* height: 500px; */
+  height: 100vh;
   width: 736px;
   background-color: #1A1A1A;
 
@@ -54,6 +54,10 @@ const WrapperToDo = styled('div')`
   margin-top: 1.5625rem;
   border-radius: 8px;
   
+  ::-webkit-scrollbar-thumb{
+    color: red;
+  }
+
   @media(max-width: 768px){
     margin-top: 1rem;
     max-height: 250px;

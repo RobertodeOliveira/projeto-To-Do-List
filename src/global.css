@@ -5,9 +5,16 @@
 }
 
 
-body{ 
+body { 
   background: Black;
 
+  /* ::-webkit-scrollbar{
+
+  } */
+
+  ::-webkit-scrollbar-thumb{
+    background: red;
+  }
 }
 
 :root {
